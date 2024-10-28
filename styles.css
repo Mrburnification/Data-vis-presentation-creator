@@ -1,0 +1,154 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    background-color: #000000;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.header h1 {
+    margin: 0;
+    background: linear-gradient(81.02deg, rgb(250, 85, 96) 0%, rgb(177, 75, 244) 30%, rgb(83, 4, 94) 120%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5em;
+    text-align: center;
+    display: inline-block;
+    background-size: 100%;
+}
+
+.header h2 {
+    margin: 0;
+    background: linear-gradient(81.02deg, rgb(66, 48, 49) 0%, rrgb(168, 114, 204)30%, rgb(84, 48, 88) 120%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5em;
+    text-align: center;
+    display: inline-block;
+    background-size: 100%;
+}
+
+
+.header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* Container Styles */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Card Styles */
+
+.card_outer {
+    background: linear-gradient(90deg, rgb(22, 22, 22), rgb(95, 94, 94));
+    padding: 6px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.card {
+    background-color: white;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.card_outer:hover {
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-image, .card-video, .card-gif {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.card-video, .card-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.card:hover video {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card:hover .card-image {
+    opacity: 0;
+    pointer-events: none;
+}
+.card-title {
+    font-size: 1.5em;
+    margin: 15px 0 10px;
+}
+
+.card-symbols {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 1em;
+    padding: 0 20px 20px;
+}
+
+.card-link {
+    display: inline-block; /* Ensure the link behaves like a block-level element */
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit text color from parent */
+}
+
+.card-link:hover {
+    /* Optional: Add hover effect */
+}
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

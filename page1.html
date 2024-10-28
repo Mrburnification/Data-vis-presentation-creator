@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Graph</title>
+  <style>
+    .control-panel {
+      margin-top: 20px;
+    }
+    .control-panel div {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div class="control-panel" id="control-panel"></div>
+  <div>
+    <button onclick="addElement('animateDisplay')">Add Animate Display</button>
+    <button onclick="addElement('targetLine')">Add Target Line</button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+  <script src="page1sketch.js"></script>
+</body>
+</html>

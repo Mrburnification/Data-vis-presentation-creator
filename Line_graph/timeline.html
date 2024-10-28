@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Canvas with Timeline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div id="left-container">
+        <div id="upper-container">
+            <div id ="version-info">-- Element edit area --</div>
+        </div>
+        <div id="left-box-outer">
+            <div id="save-container">
+                <button class="save_buttons" id="save-session">Save Session</button>
+                <button class="save_buttons" id="load-session">Load Session</button>
+                <button class="save_buttons" id="clear-session">Clear Session</button>
+            </div>
+            <div id="save-container">
+                <button class="save_buttons" id="download-session">Download Session</button>
+                <button class="save_buttons" id="upload-session">Upload Session</button>
+                <input class="save_buttons" type="file" id="file-input" style="display: none;" />
+            </div>
+        </div>
+        <div id="resizable-handle"></div>
+        <!-- Popup Modal for Editing Element Properties -->
+        <div id="element-popup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="document.getElementById('element-popup').style.display='none'">&times;</span>
+                <h2>Edit Area</h2>
+                <form id="element-form">
+                    <div id="element-sub-form">
+                        <div id="element-sub-form-name"></div> 
+                        <div id="element-sub-form-content"></div>
+                        <div id="element-sub-form-units"></div>
+                    </div>
+                </form>
+                <button type="button" onclick="saveElement()" id="save-element">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="main-container">
+    <div id="upper-container">
+        <div id ="version-info">Data analysis visual editor beta | v0.1</div>
+    </div>
+        <div id="canvas-container">
+        </div>
+        <div id="timeline-container">
+            <div id="resizable-handle-horizontal"></div>
+            <div id="shortcuts_under_canvas">
+                <i class="material-icons" id="start-timeline">first_page</i>
+                <i class="material-icons" id="click-back">arrow_back</i>
+                <i class="material-icons" id="click-forward">arrow_forward</i>
+                <i class="material-icons" id="end-timeline">last_page</i>
+                <button id="reset-timeline">Reset Timeline</button>
+                <button id="reset-animations">Reset Animations</button>
+                <i class="material-icons" id="canvas-options">video_settings</i>
+            </div>
+            <div id="timeline">
+            </div>
+            <button class="track_placeholder" id="add-track">+ <br> Add Track</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="sketch.js"></script>
+    <script src="timeline.js"></script>
+</body>
+</html>

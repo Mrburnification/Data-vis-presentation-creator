@@ -1,0 +1,81 @@
+
+3/07/2024
+
+Add number on the side of Opacity (where a number can also be inputted) ✔✔✔✔✔✔✔✔✔ (Also Allowed user to manually input value) ✔✔✔✔✔✔✔✔✔
+
+Correctly add units where needed beside boxes ✔✔✔✔✔✔✔✔✔
+
+Change checkboxes to have toggles instead ✔✔✔✔✔✔✔✔✔
+
+
+4/07/2024
+
+Html drop down must be based on element registry ✔✔✔✔✔✔✔✔✔
+
+Enable adding blank squares ✔✔✔✔✔✔✔✔✔
+
+5/07/2024
+
+Elements to show name and it be changeable ✔✔✔✔✔✔✔✔✔
+
+6/07/2024
+
+Allow the canvas to be resized without chaning the size of the pixels ✔✔✔✔✔✔✔✔✔ (hard mode)
+
+7/07/2024
+
+8/07/2024
+
+Enable Copying of elements  ✔✔✔✔✔✔✔✔✔
+
+Allow the user to change the size of the canvas (settings / dimensions) ✔✔✔✔✔✔✔✔✔
+
+9/07/2024
+
+10/07/2024
+
+add target visual ✔✔✔✔✔✔✔✔✔
+
+11/07/2024
+
+Add pie graph ✔✔✔✔✔✔✔✔✔
+
+15/07/2024 ✔✔✔✔✔✔✔✔✔
+
+- A way to complete movements using lerp at specific points in time that can also have more than one.
+
+Add line graph
+
+Add column graph
+
+Enable deleting of tracks
+
+fix hot key going off when not avaialble buttons
+
+- Create 'Fun' permanantly animaited visuals. Eg balls moving around and phisics based
+
+- A way to change text alignment with icons
+
+Must be triggered by boolean, should be infinely changeable and scalable. Changes in Size and position first. Show() must be added to each also as a boolean operation.
+
+Could include in loop show(this.show) as triggerable
+
+- Free Draw that is triggered.
+
+- Button events that can trigger visual show and hide events (eg any visuals picked from drop down)
+
+- Visual that is for drawing. Animated draw. Instant. other options.
+
+- Exportable as just canvas. (possibly some kind of visual saying if has been completed. - forward and back available.
+
+- Exportable Json can also be put into excel file which can be updated that re-JSONafied to allow uploading.
+
+( or just allow uploading of excel files)
+
+- Allow grouping of complete parts (eg allow all show to dissapear, eg by redrawing canvas colour over the top to 'appear' like a fade.
+
+- Modify the play button ticker to look better.
+
+- Make it so when new things are created the clicker goes directly to just after that element.
+
+- Make it so when I transition happens it goes 1 past to allow free move click to the new location.
