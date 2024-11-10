@@ -1,12 +1,12 @@
 // Define an array of card data
 const cardsData = [
     {
-        title: "Card 1",
+        title: "Game 1 Test",
         imageSrc: "first_frame.jpg",
         videoSrc: "video1.mp4",
         symbols: "🌟💧🔥",
         description: "This is the description for card 1.",
-        link: "page1.html"
+        link: "page3.html"
     },
     {
         title: "Card 2",
