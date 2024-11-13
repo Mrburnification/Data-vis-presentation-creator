@@ -18,6 +18,7 @@ let cachedCanvasHeight = 0;
 // Cache DOM elements and commonly used values
 let canvas;
 let textSizeCache = {};
+let gameState = "notStarted";
 
 let gameStats = {
   turns: 0,
@@ -32,22 +33,7 @@ let gameStats = {
 };
 
 function setup() {
-  // Optimize canvas creation
-  const parentElement = document.getElementById('game-container') || document.body;
-  const displayDensity = window.devicePixelRatio || 1;
-  
-  // Create canvas with device pixel ratio consideration
-  canvas = createCanvas(
-    parentElement.clientWidth, 
-    parentElement.clientHeight, 
-    P2D // Use P2D renderer for better mobile performance
-  );
-  
-  // Scale the canvas according to device pixel ratio
-  canvas.style('width', '100%');
-  canvas.style('height', '100%');
-  
-  // Cache initial dimensions
+  createCanvas(windowWidth, windowHeight);
   cachedCanvasWidth = width;
   cachedCanvasHeight = height;
   
@@ -57,9 +43,6 @@ function setup() {
   calculateCardDimensions();
   initializeCards();
   gameStats.startTime = millis();
-  
-  // Enable double click prevention on mobile
-  canvas.touchStarted(preventDoubleTouchZoom);
 }
 
 function calculateCardDimensions() {
@@ -67,17 +50,49 @@ function calculateCardDimensions() {
   cardHeight = (cachedCanvasHeight - topPadding - cardPadding * (gridSize + 1)) / gridSize;
 }
 
+function initializeCards() {
+  // Define and populate the numbers array
+  let numbers = [];
+  for (let i = 0; i < (gridSize * gridSize) / 2; i++) {
+    numbers.push(i);
+    numbers.push(i);
+  }
+  
+  // Shuffle the numbers
+  shuffle(numbers, true);
+
+  cards = []; // Clear existing cards
+
+  // Create cards with the shuffled numbers
+  for (let i = 0; i < gridSize; i++) {
+    for (let j = 0; j < gridSize; j++) {
+      let card = {
+        x: i * (cardWidth + cardPadding) + cardPadding,
+        y: j * (cardHeight + cardPadding) + topPadding + cardPadding,
+        width: cardWidth,
+        height: cardHeight,
+        number: numbers[i * gridSize + j],
+        revealed: false,
+        matched: false
+      };
+      cards.push(card);
+    }
+  }
+}
+
 function draw() {
-  // Frame rate limiting for mobile
+  // Frame rate limiting for mobile 
+  textSize((cardHeight / 3)); // Center text within box
+textAlign(CENTER, CENTER); // Center-align text within the box
   const currentTime = millis();
   if (currentTime - lastFrameTime < frameInterval) return;
   lastFrameTime = currentTime;
 
   if (gameState === "notStarted") {
-    clear(); // More efficient than background()
+    background(255);
     drawStartScreen();
   } else {
-    clear();
+    background(255);
     displayCards();
     updateTimer();
     displayGameTime();
@@ -175,35 +190,14 @@ function drawTimer(card, elapsedTime) {
 }
 
 function windowResized() {
-  // Only resize if dimensions actually changed
-  if (cachedCanvasWidth !== windowWidth || cachedCanvasHeight !== windowHeight) {
-    resizeCanvas(windowWidth, windowHeight);
-    cachedCanvasWidth = width;
-    cachedCanvasHeight = height;
-    calculateCardDimensions();
-    initializeCards();
-  }
-}
-
-function preventDoubleTouchZoom(event) {
-  if (event.touches && event.touches.length > 1) {
-    event.preventDefault();
-  }
-}
-
-// Touch event handling
-function touchStarted() {
-  if (touches.length === 1) {
-    handleInput(touches[0].x, touches[0].y);
-    return false; // Prevent default
-  }
+  resizeCanvas(windowWidth, windowHeight);
+  cachedCanvasWidth = width;
+  cachedCanvasHeight = height;
+  calculateCardDimensions();
+  initializeCards();
 }
 
 function mousePressed() {
-  handleInput(mouseX, mouseY);
-}
-
-function handleInput(x, y) {
   if (gameState === "notStarted") {
     startGame();
     return;
@@ -218,7 +212,7 @@ function handleInput(x, y) {
     updateGameStats();
   }
 
-  checkCardClick(x, y);
+  checkCardClick(mouseX, mouseY);
 }
 
 function checkCardClick(x, y) {
